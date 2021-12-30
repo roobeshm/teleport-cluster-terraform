@@ -40,7 +40,7 @@ module "teleport-cluster-terraform" {
 
   # Password for Grafana admin user
   # Grafana is hosted on https://<route53_domain>:8443
-  grafana_pass = "teleportgrafana123$"
+  grafana_pass = var.grafanapwd
 
   # Whether to use Amazon-issued certificates via ACM or not
   # This must be set to true for any use of ACM whatsoever, regardless of whether Terraform generates/approves the cert

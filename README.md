@@ -126,6 +126,20 @@ module "teleport-cluster-terraform" {
 }
 ```
 
+Make sure to have two files,
+
+keypair.tf (will EC2 instance offline generate public Key)
+```
+resource "aws_key_pair" "deployer" {
+  key_name   = "teleportdevintsecengkey"
+  public_key = "ssh-rsa <paste offline generated public key>"
+}
+
+```
+
+output.tf storing needed variables and values.
+
+
 Once this file is written, run `terraform init -upgrade && terraform plan && terraform apply`
 
 ## Prerequisites
