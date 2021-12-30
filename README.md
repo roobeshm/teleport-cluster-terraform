@@ -1,3 +1,8 @@
+Seceng Deployment Document:
+https://docs.google.com/document/d/1hXv0Cixjk4pjTNdJnWcdT4AIMn5xmqsLXqAMBf85vGc/edit#
+https://datastax.jira.com/wiki/spaces/~696851749/pages/3250454543/Teleport
+
+
 # `teleport-cluster-terraform`
 
 This repo contains a reference Terraform module which configures a production worthy high-availability auto-scaling Teleport Cluster.
@@ -126,8 +131,6 @@ module "teleport-cluster-terraform" {
 }
 ```
 
-Make sure to have two files,
-
 keypair.tf (will EC2 instance offline generate public Key)
 ```
 resource "aws_key_pair" "deployer" {
@@ -138,7 +141,7 @@ resource "aws_key_pair" "deployer" {
 ```
 
 output.tf storing needed variables and values.
-
+license.pem teleport enterprise license store in same directory .
 
 Once this file is written, run `terraform init -upgrade && terraform plan && terraform apply`
 
@@ -153,10 +156,6 @@ In order to spin up AWS resources using these Terraform examples, you need the f
 
 - terraform v0.13+ [install docs](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - awscli v1.14+ [install docs](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-
-## How to get help
-
-If you're having trouble, check out [Teleport discussions](ttps://github.com/gravitational/teleport/discussions).
 
 ## Public Teleport AMI IDs
 
